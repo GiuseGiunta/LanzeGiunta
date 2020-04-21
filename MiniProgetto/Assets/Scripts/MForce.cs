@@ -29,10 +29,14 @@ public class MForce : Magnetic
         if (mag != null && mag.still == false)
         {
             Vector3 direction = other.transform.position - transform.position;
+            float distance = direction.magnitude;
+            direction.Normalize();
+
+
             Debug.DrawRay(transform.position,direction, Color.red);
 
-            if(pole == mag.pole || pole == -mag.pole && direction.magnitude > distanceToPull)
-            other.transform.Translate(direction *(pole * mag.pole) *force * Time.deltaTime);
+            if(pole == mag.pole || pole == -mag.pole && distance > distanceToPull)
+            other.transform.GetComponent<Rigidbody>().AddForce(direction *(pole * mag.pole) *(force * 1/distance) /** Time.deltaTime*/);
         }
     }
 
