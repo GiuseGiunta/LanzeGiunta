@@ -23,15 +23,35 @@ public class MForce : Magnetic
     private void OnTriggerStay(Collider other)
     {
         Magnetic mag = other.GetComponent<Magnetic>();
-        Vector3 direction = other.transform.position - transform.position;
+       
+        
 
         if (mag != null && mag.still == false)
         {
-            
-            if(mag.pole == pole || mag.pole == -pole && direction.magnitude > distanceToPull)
+            Vector3 direction = other.transform.position - transform.position;
+            Debug.DrawRay(transform.position,direction, Color.red);
+
+            if(pole == mag.pole || pole == -mag.pole && direction.magnitude > distanceToPull)
             other.transform.Translate(direction *(pole * mag.pole) *force * Time.deltaTime);
         }
     }
 
+    public override void ChangeColor()
+    {
     
+        if (gameObject.GetComponent<Renderer>() != null)
+        {
+         
+            if (pole < 0)
+            {
+                gameObject.GetComponent<Renderer>().material = negative;
+            }
+            if (pole > 0)
+            {
+                gameObject.GetComponent<Renderer>().material = positive;
+            }
+        }
+    }
+
+
 }
