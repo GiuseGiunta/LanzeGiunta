@@ -7,8 +7,7 @@ public class MouseLook : MonoBehaviour
     public float sensitivity = 100f;
     public Transform PlayerBody;
     float xRotation = 0f;
-    //public Transform GunRot;
-    // Start is called before the first frame update
+    
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -25,6 +24,10 @@ public class MouseLook : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         PlayerBody.Rotate(Vector3.up * mouseX);
-        //GunRot.Rotate(Vector3.forward * mouseY);
+
+    
+        
+
+
     }
 }
