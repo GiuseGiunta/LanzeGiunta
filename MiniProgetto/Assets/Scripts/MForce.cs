@@ -6,6 +6,7 @@ public class MForce : Magnetic
 {
    
     public float force;
+    [Range(0.0001f,1)]
     public  float distanceCoeff = 1;
     public float distanceToPull;
     
@@ -31,14 +32,18 @@ public class MForce : Magnetic
         if (mag != null && mag.still == false)
         {
             Vector3 direction = other.transform.position - transform.position;
-            float distance = direction.magnitude;
+            float distance = direction.magnitude * distanceCoeff;
+
+            if (distance < 1) distance = 1;
+
+
             direction.Normalize();
 
 
             Debug.DrawRay(transform.position,direction, Color.red);
 
             if(pole == mag.pole || pole == -mag.pole && distance > distanceToPull)
-            other.transform.GetComponent<Rigidbody>().AddForce(direction *(pole * mag.pole) *(force * distanceCoeff/distance) /** Time.deltaTime*/);
+            other.transform.GetComponent<Rigidbody>().AddForce(direction *(pole * mag.pole) *(force * 1/(distance * distanceCoeff)) /** Time.deltaTime*/);
         }
     }
 
