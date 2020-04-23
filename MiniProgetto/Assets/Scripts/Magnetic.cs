@@ -7,6 +7,7 @@ public class Magnetic : MonoBehaviour
     [Range(-1,1)]
     public int pole = 0;
     public bool still;
+    public bool platform;
     public Material negative;
     public Material positive;
     

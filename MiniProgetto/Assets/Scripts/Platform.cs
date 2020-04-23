@@ -6,19 +6,23 @@ public class Platform : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("stonks");
+       
 
         if (other.tag == "Player")
 
-        { other.transform.SetParent(this.transform); }
+        {
+         
+            other.transform.parent = this.gameObject.transform;
+           
+        }
 
-        Debug.Log(other.transform.parent);
+       
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
-            other.transform.SetParent(null);
+        {  other.transform.parent = null;  }
     }
 
 }

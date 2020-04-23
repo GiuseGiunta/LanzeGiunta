@@ -27,6 +27,7 @@ public class MForce : Magnetic
     {
         Magnetic mag = other.GetComponent<Magnetic>();
        
+
         
 
         if (mag != null && mag.still == false)
@@ -42,9 +43,16 @@ public class MForce : Magnetic
 
             Debug.DrawRay(transform.position,direction, Color.red);
 
-            if(pole == mag.pole || pole == -mag.pole && distance > distanceToPull)
-            other.transform.GetComponent<Rigidbody>().AddForce(direction *(pole * mag.pole) *(force * 1/(distance * distanceCoeff)) /** Time.deltaTime*/);
+           
+               
+                    other.transform.GetComponent<Rigidbody>().AddForce(direction * (pole * mag.pole) * (force * 1 / (distance * distanceCoeff)) /** Time.deltaTime*/);
+            
+
+           
         }
+
+
+       
     }
 
   

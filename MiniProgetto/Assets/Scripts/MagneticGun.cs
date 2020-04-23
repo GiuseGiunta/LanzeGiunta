@@ -23,7 +23,7 @@ public class MagneticGun : MonoBehaviour
         {
             flame.Play();
 
-            if (Physics.Raycast(Camera.main.transform.position, transform.forward, out hit, range))
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, range))
             {
                GameObject obj =  Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
                 Destroy(obj, 1.5f);
