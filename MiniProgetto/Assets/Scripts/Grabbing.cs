@@ -7,6 +7,7 @@ public class Grabbing : MonoBehaviour
     public Transform grabPos;
     public int gravità;
     public int throwForce = 500;
+    public int range = 10; 
     GameObject grabbedObj;
     RaycastHit hit;
 
@@ -23,7 +24,7 @@ public class Grabbing : MonoBehaviour
         
         
            
-            if (Input.GetKeyDown(KeyCode.Mouse1) && Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 10)  && hit.transform.tag == "Grabbable")
+            if (Input.GetKeyDown(KeyCode.Mouse1) && Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, range)  && hit.transform.tag == "Grabbable")
             {
 
                
