@@ -7,9 +7,12 @@ public class Magnetic : MonoBehaviour
     [Range(-1,1)]
     public int pole = 0;
     public bool still;
-    public bool platform;
-    public Material negative;
-    public Material positive;
+
+    public Color positive;
+    public Color negative;
+    public Color neutral;
+   
+  
     
 
     private void Start()
@@ -31,11 +34,15 @@ public class Magnetic : MonoBehaviour
             
             if (pole < 0)
             {
-                gameObject.GetComponent<Renderer>().material = negative;
+                gameObject.GetComponent<Renderer>().material.color = negative;
             }
             if (pole > 0)
             {
-                gameObject.GetComponent<Renderer>().material = positive;
+                gameObject.GetComponent<Renderer>().material.color = positive;
+            }
+            if(pole == 0)
+            {
+                gameObject.GetComponent<Renderer>().material.color = neutral;
             }
         }
     }

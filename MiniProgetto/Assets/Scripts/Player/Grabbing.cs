@@ -24,7 +24,7 @@ public class Grabbing : MonoBehaviour
         
         
            
-            if (Input.GetKeyDown(KeyCode.Mouse1) && Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, range)  && hit.transform.tag == "Grabbable")
+            if (Input.GetKeyDown(KeyCode.Mouse2) && Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, range)  && hit.transform.tag == "Grabbable")
             {
 
                
@@ -32,7 +32,7 @@ public class Grabbing : MonoBehaviour
            
 
             }
-            else if (Input.GetKeyUp(KeyCode.Mouse1))
+            else if (Input.GetKeyUp(KeyCode.Mouse2))
             {
                 grabbedObj = null;
             }

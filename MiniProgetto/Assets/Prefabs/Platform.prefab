@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ed7f90037a88c4948b48d7f17888bb27, type: 2}
+  - {fileID: 2100000, guid: 051cd57724a310a42840b0e3b8b6bc79, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -108,8 +108,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pole: 1
   still: 0
-  negative: {fileID: 2100000, guid: 051cd57724a310a42840b0e3b8b6bc79, type: 2}
-  positive: {fileID: 2100000, guid: ed7f90037a88c4948b48d7f17888bb27, type: 2}
+  positive: {r: 0.9811321, g: 0.49519405, b: 0.49892044, a: 0}
+  negative: {r: 0.39215684, g: 0.7842864, b: 1, a: 0}
+  neutral: {r: 1, g: 1, b: 1, a: 0}
 --- !u!54 &4763656203045212562
 Rigidbody:
   m_ObjectHideFlags: 0
