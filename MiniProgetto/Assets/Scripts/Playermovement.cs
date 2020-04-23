@@ -16,9 +16,14 @@ public class Playermovement : MonoBehaviour
     public Vector3 velocity;
     bool isGrounded;
 
-    public GameObject empty;
-    GameObject step;
-   public bool pizza;
+
+    float xHook;
+    float zHook;
+    float yHook;
+
+    
+
+    public bool pizza = true;
     
 
     // Update is called once per frame
@@ -44,7 +49,7 @@ public class Playermovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && velocity.y == -2 )
         {
             velocity.y = JumpHeight;
-            step = null;
+            
         }
 
 
@@ -56,31 +61,30 @@ public class Playermovement : MonoBehaviour
 
         if(Physics.Raycast(transform.position, -transform.up, out hit, 1.09f))
         {
-            if (pizza) { StartCoroutine(Step()); }
+            float xDistance = hit.transform.position.x;
+            float zDistance = hit.transform.position.z;
+            float yDistance = hit.transform.position.y;
+            
+            if(!pizza)
+            {
+                transform.position = new Vector3(transform.position.x + (xDistance - xHook), transform.position.y + (yDistance - yHook), transform.position.z + (zDistance - zHook)) ;
+            }
+
+
+            xHook = hit.transform.position.x ;
+            zHook = hit.transform.position.z ;
+            yHook = hit.transform.position.y;
+
+            pizza = false;
+
         }
+        else { pizza = true; }
+     
 
-
-
-    }
-
-    IEnumerator Step()
-    {
-        pizza = false;
        
-          step = Instantiate(empty, hit.point, transform.rotation);
-        
-        
 
-        this.transform.SetParent(step.transform);
-        step.transform.SetParent(hit.transform);
-
-        yield return new WaitForSeconds(1);
-
-        this.transform.parent = null;
-
-        Destroy(step);
-
-        pizza = true;
-        
     }
+
+   
+    
 }

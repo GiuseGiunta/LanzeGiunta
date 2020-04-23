@@ -1943,7 +1943,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 395775073}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.519999, y: 1.0200014, z: -47.849995}
+  m_LocalPosition: {x: 0.99, y: 10.724, z: -34.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5006512736527453283}
@@ -1968,7 +1968,6 @@ MonoBehaviour:
   gravity: 19
   JumpHeight: 12
   velocity: {x: 0, y: 0, z: 0}
-  empty: {fileID: 6735404627627844456, guid: 536236df7f418be41977464eb63afce8, type: 3}
   pizza: 1
 --- !u!114 &395775077
 MonoBehaviour:
@@ -1983,7 +1982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabPos: {fileID: 1186795459}
-  "gravit\xE0": 5
+  "gravit\xE0": 20
   throwForce: 2000
   range: 300
 --- !u!114 &395775078
