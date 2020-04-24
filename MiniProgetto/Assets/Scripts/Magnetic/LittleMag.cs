@@ -24,7 +24,7 @@ public class LittleMag : MForce
         }
         if (transform.parent.tag == "Env") { base.still = true; }
         
-        if(transform.parent.GetComponent<MForce>())
+        if(transform.parent.GetComponent<MForce>() && transform.parent.GetComponent<MForce>().pole !=0)
         { transform.parent.GetComponent<MForce>().force += (transform.parent.GetComponent<MForce>().pole * base.pole) * force; this.gameObject.SetActive(false);  }
 
         effect.Play();
@@ -38,7 +38,8 @@ public class LittleMag : MForce
             if (transform.parent.GetComponent<MForce>())
             {
                 {
-                    transform.parent.GetComponent<MForce>().force += (transform.parent.GetComponent<MForce>().pole * base.pole) * force;
+                    
+                    transform.parent.GetComponent<MForce>().force -= (transform.parent.GetComponent<MForce>().pole * base.pole) * force;
                 }
             }
 
