@@ -29,7 +29,8 @@ public class MagGrapple : MonoBehaviour
                GameObject obj =  Instantiate(mag, hit.point, Quaternion.LookRotation(hit.normal));
                 obj.GetComponent<Magnetic>().pole = 1;
                 obj.transform.SetParent(hit.transform);
-                obj.transform.GetComponent<FixedJoint>().connectedBody = hit.transform.GetComponent<Rigidbody>();
+                if (hit.transform.GetComponent<Rigidbody>())
+                { obj.transform.GetComponent<FixedJoint>().connectedBody = hit.transform.GetComponent<Rigidbody>(); }
             }
         }
 
@@ -42,7 +43,8 @@ public class MagGrapple : MonoBehaviour
                 GameObject obj = Instantiate(mag, hit.point, Quaternion.LookRotation(hit.normal));
                 obj.GetComponent<Magnetic>().pole = -1;
                 obj.transform.SetParent(hit.transform);
-                obj.transform.GetComponent<FixedJoint>().connectedBody = hit.transform.GetComponent<Rigidbody>();
+                if (hit.transform.GetComponent<Rigidbody>())
+                { obj.transform.GetComponent<FixedJoint>().connectedBody = hit.transform.GetComponent<Rigidbody>(); }
             }
         }
     }

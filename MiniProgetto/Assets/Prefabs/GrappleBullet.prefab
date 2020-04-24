@@ -46,7 +46,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 14.2
   m_Center: {x: 0, y: 0, z: -0.000002037001}
 --- !u!114 &5836999278514613632
 MonoBehaviour:
@@ -62,8 +62,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pole: 1
   still: 0
-  negative: {fileID: 0}
-  positive: {fileID: 0}
+  positive: {r: 0, g: 0, b: 0, a: 0}
+  negative: {r: 0, g: 0, b: 0, a: 0}
+  neutral: {r: 0, g: 0, b: 0, a: 0}
   force: 50
   distanceCoeff: 1
   distanceToPull: 0

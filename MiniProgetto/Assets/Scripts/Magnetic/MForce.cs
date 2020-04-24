@@ -26,11 +26,12 @@ public class MForce : Magnetic
     private void OnTriggerStay(Collider other)
     {
         Magnetic mag = other.GetComponent<Magnetic>();
-       
+
+        Rigidbody rb = other.GetComponent<Rigidbody>();
 
         
 
-        if (mag != null && mag.still == false)
+        if (mag != null && rb != null)
         {
             Vector3 direction = other.transform.position - transform.position;
             float distance = direction.magnitude * distanceCoeff;
@@ -38,16 +39,19 @@ public class MForce : Magnetic
             if (distance < 1) distance = 1;
 
 
-            direction.Normalize();
+            
 
 
-            Debug.DrawRay(transform.position,direction, Color.red);
+           
 
            
                
-                    other.transform.GetComponent<Rigidbody>().AddForce(direction * (pole * mag.pole) * (force * 1 / (distance * distanceCoeff)) /** Time.deltaTime*/);
-            
+            rb.AddForce(direction.normalized * (pole * mag.pole) * (force  / (distance)) /** Time.deltaTime*/);
 
+            if (mag.pole == -pole && mag.still && other.GetComponent<MForce>())
+            {
+              rb.AddForce(direction.normalized * (pole * mag.pole) * (other.GetComponent<MForce>().force * 1 / (distance)));
+            }
            
         }
 
@@ -55,7 +59,18 @@ public class MForce : Magnetic
        
     }
 
-  
+    public override void ChangeColor()
+    {
+        base.ChangeColor();
+
+        if(force < 0)
+        {
+            pole *= -1;
+            force *= -1;
+        }
+    }
+
+
 
 
 }
