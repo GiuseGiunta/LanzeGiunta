@@ -68,6 +68,7 @@ public class Playermovement : MonoBehaviour
             if(!pizza)
             {
                 transform.position = new Vector3(transform.position.x + (xDistance - xHook),transform.position.y + (yDistance - yHook), transform.position.z + (zDistance - zHook)) ;
+                
             }
 
 

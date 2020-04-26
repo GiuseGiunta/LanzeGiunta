@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LittleMag : MForce
+public class LittleMag : MForce/*, IpooledObj*/
 {
     public ParticleSystem effect;
 
@@ -10,25 +10,27 @@ public class LittleMag : MForce
     public GameObject impactForce;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        GameObject obj = Instantiate(impactForce, transform.position, transform.rotation);
+    //Start is called before the first frame update
+   void Start()
+   {
+      
 
-        Destroy(obj, 1f);
+       GameObject obj = Instantiate(impactForce, transform.position, transform.rotation);
 
-        if (base.pole < 0)
-        {
-            var main = effect.main;
-            main.startColor = new Color(0, 67, 245, 150);
-        }
-        if (transform.parent.tag == "Env") { base.still = true; }
-        
-        if(transform.parent.GetComponent<MForce>() && transform.parent.GetComponent<MForce>().pole !=0)
-        { transform.parent.GetComponent<MForce>().force += (transform.parent.GetComponent<MForce>().pole * base.pole) * force; this.gameObject.SetActive(false);  }
+       Destroy(obj, 1f);
 
-        effect.Play();
-    }
+       if (base.pole < 0)
+       {
+           var main = effect.main;
+           main.startColor = new Color(0, 67, 245, 150);
+       }
+       if (transform.parent.tag == "Env") { base.still = true; }
+     
+       if(transform.parent.GetComponent<MForce>() && transform.parent.GetComponent<MForce>().pole !=0)
+       { transform.parent.GetComponent<MForce>().force += (transform.parent.GetComponent<MForce>().pole * base.pole) * force; this.gameObject.SetActive(false);  }
+
+       effect.Play();
+   }
 
 
     public override void ChangeColor()
