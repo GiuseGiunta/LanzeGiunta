@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44820094, g: 0.49822098, b: 0.5755682, a: 1}
+  m_IndirectSpecularColor: {r: 0.44820124, g: 0.49822134, b: 0.57556885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11681,7 +11681,7 @@ HingeJoint:
   m_Anchor: {x: -0.5, y: 0.50000316, z: 0}
   m_Axis: {x: 1, y: 0, z: 90}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.07817548, y: 0.0000007386381, z: -0.5482277}
+  m_ConnectedAnchor: {x: 0.07817548, y: 0.00000073863816, z: -0.5482277}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -12044,7 +12044,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584406059}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.523}
+  m_LocalPosition: {x: 0, y: 0, z: -0.464}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5006512736527453283}

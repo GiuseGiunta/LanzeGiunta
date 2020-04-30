@@ -50,7 +50,7 @@ public class MForce : Magnetic
 
             if (mag.pole == -pole && mag.still && other.GetComponent<MForce>())
             {
-              rb.AddForce(direction.normalized * (pole * mag.pole) * (other.GetComponent<MForce>().force * 1 / (distance)));
+              rb.AddForce(direction.normalized * (pole * mag.pole) * (other.GetComponent<MForce>().force * 1 / distance));
             }
            
         }
